@@ -10,44 +10,50 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     />
-    <title>Document</title>
+    <title>Motion</title>
     <link
       rel="stylesheet"
       href="./style/index.css"
     />
+    <script type="module" src="./dist/app.js" defer></script>
   </head>
   <body>
-    <div class="container">
+    <div class="app">
       <nav class="navbar">
         <div class="title">
           <p class="motion">MOTION</p>
         </div>
 
         <ul class="navbar__menu">
-          <li>IMAGE</li>
-          <li>VIDEO</li>
-          <li>NOTE</li>
-          <li>TASK</li>
+          <li><button id=new-image" class="create-button">IMAGE</button></li>
+          <li><button id=new-video" class="create-button">VIDEO</button></li>
+          <li><button id=new-note" class="create-button">NOTE</button></li>
+          <li><button id=new-todo" class="create-button">TODO</button></li>
         </ul>
       </nav>
 
-      <div class="modal">
-        <div class="modal__overlay"></div>
-        <div class="modal__total">
-          <div class="modal__head">
-            <button>x</button>
-          </div>
-          <div class="modal__body">
-            <span>Title</span>
-            <Input type="text"></Input>
-            <span>URL</span>
-            <Input type="text"></Input>
-          </div>
-          <div class="modal__footer">
-            <button>Add</button>
-          </div>
-        </div>
-      </div>
+      <main class="document">
+        <!-- <div class="modal">
+          <div class="modal__overlay"></div>
+          <div class="modal__total">
+            <div class="modal__head">
+              <button>x</button>
+            </div>
+            <div class="modal__body">
+              <span>Title</span>
+              <Input type="text"></Input>
+              <span>URL</span>
+              <Input type="text"></Input>
+            </div>
+            <div class="modal__footer">
+              <button>Add</button>
+            </div>
+          </div> // moda__total
+        </div> -->
+      </main>
+      <footer class="footer">
+        <p>© Copyright by Dream Coding Academy. All rights reserved.</p>
+      </footer>
       <div class="contents"></div>
     </div>
   </body>
