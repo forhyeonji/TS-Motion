@@ -17,13 +17,22 @@
   --translucent-black: #00000099;
 }
 
+@font-face {
+  font-family: 'LeferiPoint-WhiteObliqueA';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/LeferiPoint-WhiteObliqueA.woff')
+    format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 * {
   margin: 0px;
   box-sizing: border-box;
+  font-family: 'LeferiPoint-WhiteObliqueA';
 }
 
 body {
-  background: url('../assets/background.png') center/cover no-repeat;
+  background: url('../assets/rainbow-background.png') center/cover no-repeat;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -32,18 +41,28 @@ body {
   margin: 0;
 }
 
+.video__iframe {
+  border: none;
+  width: 100%;
+  height: 100%;
+}
+
+.image__thumbnail {
+  width: 100%;
+  height: 100%;
+}
+
 .app {
   width: 100%;
   max-width: 800px;
   height: 100%;
   display: flex;
   flex-direction: column;
-  /* background-color: rgba(79, 79, 79, 0.3); */
+  background-color: rgba(196, 88, 88, 0.6);
 }
 
 .navbar {
-  background: var(--bg-main-color);
-  border-bottom: 1px solid var(--bg-accent-color);
+  background-color: rgba(0, 0, 0, 0.5);
   text-align: center;
   padding: 1rem;
 }
@@ -51,7 +70,7 @@ body {
 .motion {
   font-size: 2rem;
   font-weight: 700;
-  color: red;
+  color: rgb(196, 31, 31);
   height: 3rem;
 }
 
@@ -68,10 +87,17 @@ body {
   padding: 0.5em 1em;
   margin: 0 0.2em;
   font-size: 1rem;
-  background-color: rgb(192, 0, 0);
+  background-color: rgb(193, 51, 51);
   color: white;
   user-select: none;
   border-radius: 2px;
+}
+
+.footer {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 1rem;
+  text-align: center;
+  color: white;
 }
 
 .document {
@@ -115,11 +141,11 @@ body {
 
 .modal__total {
   min-width: 28rem;
-  height: 16rem;
+  min-height: 12rem;
   background-image: linear-gradient(
     to right,
-    rgba(41, 41, 41, 0.75),
-    rgba(0, 0, 0, 0.75)
+    rgba(41, 41, 41, 0.8),
+    rgba(0, 0, 0, 0.8)
   );
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.23);
   border-radius: 10px;
@@ -137,9 +163,15 @@ body {
 }
 
 .modal__head button {
-  color: red;
+  color: rgb(56, 56, 56);
   font-size: 1.3rem;
   border: none;
+  background-color: transparent;
+}
+.close {
+  color: rgb(32, 28, 28);
+  border: none;
+  font-size: 1.3rem;
   background-color: transparent;
 }
 
@@ -155,12 +187,34 @@ body {
   color: rgb(224, 224, 224);
   font-size: 1rem;
   margin: 1rem 0 0 0;
+  display: flex;
+  align-items: center;
 }
 
-.form__container input {
-  padding: 0.4rem 0.6rem;
-  height: 1.3rem;
-  font-size: 1rem;
+.form__label {
+  display: inline-block;
+  width: 2rem;
+  margin: 0 1rem 0 0.6rem;
+  text-align: center;
+}
+
+.form__input {
+  padding: 0.3em 0.5em;
+  /* margin: 0 0 0 1rem; */
+
+  width: 80%;
+  font-size: 0.8rem;
+  color: white;
+  background-color: rgba(91, 91, 91, 0.43);
+  outline: none;
+  border: none;
+}
+
+.form_textarea {
+  padding: 0.3em 0.5em;
+  width: 80%;
+  height: 100px;
+  font-size: 0.8rem;
   color: white;
   background-color: rgba(91, 91, 91, 0.43);
   outline: none;
@@ -177,16 +231,73 @@ body {
 .modal__footer button {
   height: 2rem;
   width: 3rem;
-  background-color: red;
+  background-color: rgb(193, 51, 51);
   color: white;
   border: none;
   outline: none;
   border-radius: 3px;
 }
 
-.footer {
-  background-color: rgba(0, 0, 0, 0.7);
-  padding: 1rem;
-  text-align: center;
+.close:hover,
+.close:focus {
+  transform: scale(1.2);
+  color: rgb(193, 51, 51);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* -- PAGE ITEM -- */
+.page {
+  padding: 0;
+}
+
+.page-item {
+  margin: 1.5em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 2px 2px 6px rgb(141, 113, 113);
+  background: linear-gradient(
+    90deg,
+    rgba(251, 132, 132, 1) 0%,
+    rgba(255, 170, 97, 1) 100%
+  );
+  padding: 1em;
+  border: none;
+  border-radius: 5px;
+}
+.page-item__body {
+  width: 90%;
+}
+.note {
+  width: 100%;
+}
+
+.video,
+.image {
+  display: flex;
+  width: 100%;
+  height: 250px;
+}
+.note__title,
+.todo__title,
+.video__title,
+.image__title {
   color: white;
+  margin: 0.5rem;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.note__body {
+  color: white;
+  margin: 1.5rem 0.5rem 0.5rem 0.5rem;
+  width: 100%;
+}
+
+.todo {
+  color: white;
+}
+.todo-checkbox {
+  margin: 0.5rem;
 }
